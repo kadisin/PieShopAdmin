@@ -1,0 +1,29 @@
+﻿@model Category
+
+<h2>Create a new category</h2>
+<hr />
+
+<form method="post" asp-controller="Category" asp-action="Add">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label"></label>
+        <textarea asp-for="Description" class="form-control" rows="5" cols="50" style="resize: none;"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="DateAdded" class="form-label"></label>
+        <input asp-for="DateAdded" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <input type="submit" value="Add category" class="btn btn-primary" />
+</form>
+<div>
+    <a asp-controller="Category" asp-action="Index">Back to overview</a>
+</div>

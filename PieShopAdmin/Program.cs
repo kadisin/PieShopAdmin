@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PieShopAdmin.Database;
+using PieShopAdmin.Models.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,11 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<PieShopDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("PieShopDbContextConnectionString")));
+
+//register services - dependency injection
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();  
+builder.Services.AddScoped<IPieRepository, PieRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 

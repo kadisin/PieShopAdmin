@@ -1,0 +1,96 @@
+﻿@model OrderIndexViewModel
+
+<h2>Orders</h2>
+<hr />
+
+<table class="table table-condensed table-bordered">
+    <tr>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Total</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.Orders)
+    {
+        string selectedRow = "";
+
+        if (item.OrderId == Model.SelectedOrderId)
+        {
+            selectedRow = "success";
+        }
+
+        <tr class="@selectedRow">
+            <td>
+                @Html.DisplayFor(m => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.OrderTotal)
+            </td>
+            <td>
+                <a asp-action="Index" asp-route-orderId="@item.OrderId">Select</a>
+                <a asp-action="Details" asp-route-orderId="@item.OrderId">Details</a>
+            </td>
+        </tr>
+    }
+</table>
+
+@if (Model.OrderDetails != null)
+{
+    <h3>Order details for selected order</h3>
+    <table class="table table-condensed table-bordered">
+        <tr>
+            <th></th>
+            <th>ID</th>
+            <th>Detail total</th>
+        </tr>
+
+        @foreach (var item in Model.OrderDetails)
+        {
+            string selectedRow = "";
+            if (item.OrderDetailId == Model.SelectedOrderDetailId)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+               
+                <td>
+                    @item.OrderDetailId
+                </td>
+                <td>
+                    @item.Price
+                </td>
+                <td>
+                    <a asp-action="Index" asp-route-orderId="@item.OrderId" asp-route-orderDetailId="@item.OrderDetailId">Select</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+
+@if (Model.Pies != null)
+{
+    <h3>
+        Pie in order details
+    </h3>
+    <table class="table table-condensed table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Item price</th>
+        </tr>
+        @foreach (var item in Model.Pies)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Price
+                </td>
+            </tr>
+        }
+    </table>
+}

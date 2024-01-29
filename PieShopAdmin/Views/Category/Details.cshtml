@@ -1,0 +1,55 @@
+﻿@model Category
+
+<h2>Details for category @Model.Name</h2>
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            <label asp-for="CategoryId"></label>
+        </dt>
+        <dd class="col-sm-10">
+            @Model.CategoryId
+        </dd>
+        <dt class="col-sm-2">
+            <label asp-for="Name"></label>
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Name
+        </dd>
+        <dt class="col-sm-2">
+            <label asp-for="Description"></label>
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Description
+        </dd>
+        <dt class="col-sm-2">
+            <label asp-for="DateAdded"></label>
+        </dt>
+        <dd class="col-sm-10">
+            @Model.DateAdded.Value.ToShortDateString()
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pies)
+        </dt>
+        <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>Pie name</th>
+                    <th>Price</th>
+                </tr>
+                @foreach (var pie in Model.Pies)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(category => pie.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(category => pie.Price)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
