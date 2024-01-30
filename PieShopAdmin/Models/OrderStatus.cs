@@ -1,7 +1,11 @@
 ﻿namespace PieShopAdmin.Models
 {
-    public class OrderStatus
+    public enum OrderStatus
     {
-        public int OrderStatusId { get; set; }
+        Received,
+        Paid,
+        Processing,
+        OutForDelivery,
+        Delivered
     }
 }

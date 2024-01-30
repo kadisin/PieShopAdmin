@@ -12,9 +12,16 @@ namespace PieShopAdmin.Models.Repositories
             _pieShopDbContext = pieShopDbContext;
         }
 
+        public async Task<int> AddPieAsync(Pie pie)
+        {
+            _pieShopDbContext.Pies.Add(pie);
+            return await _pieShopDbContext.SaveChangesAsync();
+        }
+
+        //when we read lists we dont need to truck changes
         public async Task<IEnumerable<Pie>> GetAllPiesAsync()
         {
-            return await _pieShopDbContext.Pies.OrderBy(x => x.PieId).ToListAsync();
+            return await _pieShopDbContext.Pies.OrderBy(x => x.PieId).AsNoTracking().ToListAsync();
         }
 
         public async Task<Pie>? GetPieByIdAsync(int id)
