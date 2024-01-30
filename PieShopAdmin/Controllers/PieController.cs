@@ -33,11 +33,19 @@ namespace PieShopAdmin.Controllers
         //fill data to dropdown to select category related to pie etc. - pie model is empty
         public async Task<IActionResult> Add()
         {
-            var allCategories = await _categoryRepository.GetAllCategoriesAsync();
-            IEnumerable<SelectListItem> selectListItems = new SelectList(allCategories,
-                "CategoryId", "Name", null);
-            PieAddViewModel model = new() { Categories = selectListItems };
-            return View(model);
+            try
+            {
+                var allCategories = await _categoryRepository.GetAllCategoriesAsync();
+                IEnumerable<SelectListItem> selectListItems = new SelectList(allCategories,
+                    "CategoryId", "Name", null);
+                PieAddViewModel model = new() { Categories = selectListItems };
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                ViewData["ErrorMessage"] = $"There was an error: {ex.Message}";
+            }
+            return View(new PieAddViewModel());
         }
 
         [HttpPost]
