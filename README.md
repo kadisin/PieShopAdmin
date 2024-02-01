@@ -38,10 +38,11 @@
 <li>Add category</li>
 <li>Update category</li>
 <li>Delete category</li>
-
+<p />
 <p>Project to learn good practises using Entity framework - look notes (at the end)</p>
+<p />
 <p>Code first design</p>
-<p>>Dependency Injection</p>
+<p>Dependency Injection</p>
 <p>IQueryable vs IEnumerable</p>
 <p>Track changes</p>
 <p>Cache</p>
