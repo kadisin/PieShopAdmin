@@ -39,14 +39,14 @@
 <li>Update category</li>
 <li>Delete category</li>
 <p />
-<p>Project to learn good practises using Entity framework - look notes (at the end)</p>
+<h4>Project to learn good practises using Entity framework</h4>
 <p />
-<p>Code first design</p>
-<p>Dependency Injection</p>
-<p>IQueryable vs IEnumerable</p>
-<p>Track changes</p>
-<p>Cache</p>
-<p>Migrations</p>
+<li>Code first design</li>
+<li>Dependency Injection</li>
+<li>IQueryable vs IEnumerable</li>
+<li>Track changes</li>
+<li>Cache</li>
+<li>Migrations</li>
 
 Database structure:
 
