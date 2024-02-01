@@ -40,6 +40,7 @@
 <li>Delete category</li>
 
 <p>Project to learn good practises using Entity framework - look notes (at the end)</p>
+<p>Code first design</p>
 <p>>Dependency Injection</p>
 <p>IQueryable vs IEnumerable</p>
 <p>Track changes</p>
