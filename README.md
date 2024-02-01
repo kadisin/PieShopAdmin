@@ -1,6 +1,37 @@
 <div style="text-align: center">
 
 
+![image](https://github.com/kadisin/PieShopAdmin/assets/38622355/9f74fe95-f7e8-4639-b035-7333b3561f57)
+
+Description (business perspective):
+Web application use to manage pies.
+As a owner of pie shop I want to manage a pies (add, modify, delete, search etc).
+
+Description (technical perspective)
+Web application use to manage pies
+Basic CRUD operation on pie's and categories (look interfaces IPieRepository and ICategoryRepository).
+Pie:
+-Get all
+-Get by Id
+-Add pie
+-Update pie
+-Remove pie
+-Search pie (get pies with filter)
+
+Category: 
+-Get all
+-Get by Id
+-Add category
+-Update category
+-Delete category
+
+Project to learn good practises using Entity framework - look notes (at the end)
+-IQueryable vs IEnumerable
+-Track changes
+-Cache
+-Migrations
+
+Database structure:
 ![image](https://github.com/kadisin/PieShopAdmin/assets/38622355/73803411-973a-4359-8255-88682482a2fe)
 
 
