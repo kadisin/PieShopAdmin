@@ -3,7 +3,7 @@
 
 ![image](https://github.com/kadisin/PieShopAdmin/assets/38622355/9f74fe95-f7e8-4639-b035-7333b3561f57)
 
-<p> Description (business perspective): </p>
+<p style="text-align: center"> Description (business perspective): </p>
 <p> >Web application use to manage pies. </p>
 <p> As a owner of pie shop I want to manage a pies (add, modify, delete, search etc).</p>
 
