@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using PieShopAdmin.Database;
 
 namespace PieShopAdmin.Models.Repositories
@@ -6,10 +7,12 @@ namespace PieShopAdmin.Models.Repositories
     public class CategoryRepository : ICategoryRepository
     {
         private readonly PieShopDbContext _pieShopDbContext;
+        private IMemoryCache _memoryCache;
 
-        public CategoryRepository(PieShopDbContext pieShopDbContext)
+        public CategoryRepository(PieShopDbContext pieShopDbContext, IMemoryCache memoryCache)
         {
             _pieShopDbContext = pieShopDbContext;
+            _memoryCache = memoryCache;
         }
 
         public async Task<int> AddCategoryAsync(Category category)
@@ -21,7 +24,11 @@ namespace PieShopAdmin.Models.Repositories
             }
 
             _pieShopDbContext.Categories.Add(category);
-            return await _pieShopDbContext.SaveChangesAsync();
+            int result = await _pieShopDbContext.SaveChangesAsync();
+
+            //When we add category we have to remove categories cache - it is not up-to-date
+            _memoryCache.Remove(Consts.AllCategoriesCacheName);
+            return result;
         }
 
         public async Task<int> DeleteCategoryAsync(int id)
@@ -38,7 +45,11 @@ namespace PieShopAdmin.Models.Repositories
             if (categoryToDelete != null)
             {
                 _pieShopDbContext.Categories.Remove(categoryToDelete);
-                return await _pieShopDbContext.SaveChangesAsync();
+                int result = await _pieShopDbContext.SaveChangesAsync();
+
+                //When we delete category we have to remove categories cache - it is not up-to-date
+                _memoryCache.Remove(Consts.AllCategoriesCacheName);
+                return result;
             }
             else
             {
@@ -54,7 +65,15 @@ namespace PieShopAdmin.Models.Repositories
         //when we read lists we dont need to truck changes
         public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
         {
-            return await _pieShopDbContext.Categories.OrderBy(p => p.CategoryId).AsNoTracking().ToListAsync();
+            List<Category> allCategories = null;
+            if (!_memoryCache.TryGetValue(Consts.AllCategoriesCacheName, out allCategories))
+            {
+                //if all categories not exist in memory then add it to cache
+                allCategories = await _pieShopDbContext.Categories.AsNoTracking().OrderBy(c => c.CategoryId).ToListAsync();
+                var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromSeconds(60));
+                _memoryCache.Set(Consts.AllCategoriesCacheName, allCategories, cacheEntryOptions);
+            }
+            return allCategories;
         }
 
 
@@ -80,7 +99,11 @@ namespace PieShopAdmin.Models.Repositories
                 categoryToUpdate.Description = category.Description;
 
                 _pieShopDbContext.Categories.Update(categoryToUpdate);
-                return await _pieShopDbContext.SaveChangesAsync();
+                int result = await _pieShopDbContext.SaveChangesAsync();
+
+                //When we modify category we have to remove categories cache - it is not up-to-date
+                _memoryCache.Remove(Consts.AllCategoriesCacheName);
+                return result;
             }
             else
             {

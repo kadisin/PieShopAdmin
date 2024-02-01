@@ -10,5 +10,6 @@
         public const string Price = "price";
 
         public const int PageSize = 5;
+        public const string AllCategoriesCacheName = "AllCategories";
     }
 }
