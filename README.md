@@ -1,26 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-        body {
-            margin: auto;
-            text-align: center;
-        }
-        .container {
-            text-align: center;
-            margin: 30px;
-        }
-        .border {
-            border-style: solid;
-        }
-    </style>
 </head>
-<body>
+<body style="margin: auto; text-align: center;">
     <h3>Admin Pie Shop</h3>
     
 ![image](https://github.com/kadisin/PieShopAdmin/assets/38622355/9f74fe95-f7e8-4639-b035-7333b3561f57)
 
-<div class="container">
+<div class="container" style="text-align: center; margin: 30px">
 <h4>Description (business perspective):</h4>
 
 <p>Web application use to manage pies.</p>
@@ -66,7 +53,7 @@ Database structure:
 <p>Track changes: This is one of the main function on Entity framework.</p>
 <p>EF track changes on rows (add, modify, delete) </p> 
 <p>Changes are related to existing object DbContext</p>
-<div class="border">
+<div class="border" style="border-style: solid;">
     <p>var entries = context.ChangeTracker.Entries();</p>
     <p>foreach (var entry in entries) { Console.WriteLine("Entity Name: {0}", entry.Entity.GetType().Name); Console.WriteLine("Status: {0}", entry.State); }</p>
     <p>Entity Name: Student Status: Unchanged</p>
@@ -74,7 +61,7 @@ Database structure:
 </div>
 <p>When we only load data to see on page (Categories to dropdown) then we could use AsNoTracking() method</p>
 <h4>IEnumerable vs IQueryable</h4>
-<div class="border">
+<div class="border" style="border-style: solid;">
     <h5>IEnumerable load all data from database to memory then filter it</h5>
     <p>IEnumerable employeeIEnumberable = db.Employee.Where(a =>; a.JobTitle.StartsWith("P")); employeeIEnumberable = employeeIEnumberable.Take(5)</p>
     <p>Looks in sql: select * from HumanResources.Employee where JobTitle like 'P%'</p>
@@ -84,7 +71,7 @@ Database structure:
     <p>IQueryable is optymalization on database side</p>
 </div>
 <h4>In-memory Caching</h4>
-<div class="border">
+<div class="border" style="border-style: solid;">
     <p>Using IMemoryCache - stores data in memory server</p>
     <p>Set and use cache basicly on get data (load data to memory)</p>
     <p>Remove cache on add, update, delete data</p>
