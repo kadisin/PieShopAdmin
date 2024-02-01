@@ -1,3 +1,6 @@
+<div style="text-align: center">
+
+
 ![image](https://github.com/kadisin/PieShopAdmin/assets/38622355/73803411-973a-4359-8255-88682482a2fe)
 
 
@@ -46,3 +49,5 @@ In-memory Caching
 -> using IMemoryCache - stores data in memory server
 -> set and use cache basicly on get data (load data to memory)
 -> remove cache on add, update, delete data
+
+</div>
