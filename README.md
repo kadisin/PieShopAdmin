@@ -3,35 +3,38 @@
 
 ![image](https://github.com/kadisin/PieShopAdmin/assets/38622355/9f74fe95-f7e8-4639-b035-7333b3561f57)
 
-Description (business perspective):
-Web application use to manage pies.
-As a owner of pie shop I want to manage a pies (add, modify, delete, search etc).
+<p> Description (business perspective): </p>
+<p> >Web application use to manage pies. </p>
+<p> As a owner of pie shop I want to manage a pies (add, modify, delete, search etc).</p>
 
-Description (technical perspective)
-Web application use to manage pies
-Basic CRUD operation on pie's and categories (look interfaces IPieRepository and ICategoryRepository).
-Pie:
--Get all
--Get by Id
--Add pie
--Update pie
--Remove pie
--Search pie (get pies with filter)
+<p> Description (technical perspective) </p>
+<p> Web application use to manage pies</p>
+<p> Project architecture: </p>
+<p> Basicly is MVC architecture with extension using Repositories classes to connect to database, ViewModels </p>
+<p> Basic CRUD operation on pie's and categories (look interfaces IPieRepository and ICategoryRepository).</p>
+<p> Pie:</p>
+<p> -Get all</p>
+<p> -Get by Id</p>
+<p> -Add pie</p>
+<p> -Update pie</p>
+<p>-Remove pie</p>
+<p> -Search pie (get pies with filter)</p>
 
-Category: 
--Get all
--Get by Id
--Add category
--Update category
--Delete category
+<p>Category: </p>
+<p>-Get all</p>
+<p>-Get by Id</p>
+<p>-Add category</p>
+<p>-Update category</p>
+<p>-Delete category</p>
 
-Project to learn good practises using Entity framework - look notes (at the end)
--IQueryable vs IEnumerable
--Track changes
--Cache
--Migrations
+<p> Project to learn good practises using Entity framework - look notes (at the end)</p>
+<p>-Dependency Injection</p>
+<p>-IQueryable vs IEnumerable</p>
+<p>-Track changes</p>
+<p>-Cache</p>
+<p>-Migrations</p>
 
-Database structure:
+<p>Database structure:</p>
 ![image](https://github.com/kadisin/PieShopAdmin/assets/38622355/73803411-973a-4359-8255-88682482a2fe)
 
 
