@@ -22,7 +22,7 @@
 
 <p>Basicly is MVC architecture with extension using Repositories and ViewModels</p>
 
-<p>Basic CRUD operation on pie's and categories (look interfaces /Models/Repositories/ IPieRepository and ICategoryRepository).</p>
+<p>Basic CRUD operation on pie's and categories (look interfaces <a href="https://github.com/kadisin/PieShopAdmin/blob/master/PieShopAdmin/Models/Repositories/IPieRepository.cs">IPieRepository</a>and<a href="https://github.com/kadisin/PieShopAdmin/blob/master/PieShopAdmin/Models/Repositories/ICategoryRepository.cs">ICategoryRepository</a>).</p>
 
 <h4> Pie:</h4>
 <li>Get all</li>
