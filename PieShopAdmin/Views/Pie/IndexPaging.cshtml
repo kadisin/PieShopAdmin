@@ -1,0 +1,61 @@
+﻿@using PieShopAdmin.Models.Utilities;
+
+@model PagedList<Pie>
+
+<h2>Pies</h2>
+<hr />
+
+@if (!Model.Any())
+{
+    <p>No results</p>
+}
+else
+{
+    <table class="table table-condensed table-bordered">
+        <tr>
+
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Price
+            </th>
+            <th>Actions</th>
+        </tr>
+        @foreach (var pie in Model)
+        {
+
+            <tr>
+                <td>@pie.PieId</td>
+                <td>@pie.Name</td>
+                <td>@pie.Price</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@pie.PieId">Details</a>
+                    <a asp-action="Edit" asp-route-id="@pie.PieId">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@pie.PieId">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+
+}
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="IndexPaging" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="IndexPaging" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-default @nextDisabled">
+    Next
+</a>
+
+
+<p>
+    <a class="btn btn-primary" asp-action="Add">Add new pie</a>
+</p>

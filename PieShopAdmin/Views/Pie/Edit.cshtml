@@ -1,0 +1,77 @@
+﻿@model PieEditViewModel
+
+<h2>Update pie @Model.Pie.Name</h2>
+<hr />
+
+<form method="post" asp-controller="Pie" asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Pie.PieId" />
+
+    <div class="mb-3">
+        <label asp-for="Pie.Name" class="form-label"></label>
+        <input asp-for="Pie.Name" class="form-control" />
+        <span asp-validation-for="Pie.Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Pie.ShortDescription" class="form-label"></label>
+        <textarea asp-for="Pie.ShortDescription" class="form-control" rows="5" cols="50" style="resize: none;"></textarea>
+        <span asp-validation-for="Pie.ShortDescription" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Pie.LongDescription" class="form-label"></label>
+        <textarea asp-for="Pie.LongDescription" class="form-control" rows="5" cols="50" style="resize: none;"></textarea>
+        <span asp-validation-for="Pie.LongDescription" class="text-danger"></span>
+    </div>
+
+
+    <div class="mb-3">
+        <label asp-for="Pie.AllergyInformation" class="form-label"></label>
+        <textarea asp-for="Pie.AllergyInformation" class="form-control" rows="5" cols="50" style="resize: none;"></textarea>
+        <span asp-validation-for="Pie.AllergyInformation" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Pie.Price" class="form-label"></label>
+        <input asp-for="Pie.Price" class="form-control" />
+        <span asp-validation-for="Pie.Price" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Pie.ImageThumbnailUrl" class="form-label"></label>
+        <input asp-for="Pie.ImageThumbnailUrl" class="form-control" />
+        <span asp-validation-for="Pie.ImageThumbnailUrl" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Pie.ImageUrl" class="form-label"></label>
+        <input asp-for="Pie.ImageUrl" class="form-control" />
+        <span asp-validation-for="Pie.ImageUrl" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Pie.IsPieOfTheWeek" class="form-label"></label>
+        <input asp-for="Pie.IsPieOfTheWeek" type="checkbox" />
+        <span asp-validation-for="Pie.IsPieOfTheWeek" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Pie.InStock" class="form-label"></label>
+        <input asp-for="Pie.InStock" type="checkbox" />
+        <span asp-validation-for="Pie.InStock" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Categories" class="form-label"></label>
+        <select asp-for="Pie.CategoryId" asp-items="Model.Categories"></select>
+        <span asp-validation-for="Categories" class="text-danger"></span>
+    </div>
+
+    <input type="submit" value="Update pie" class="btn btn-primary" />
+</form>
+
+<div>
+    <a asp-controller="Pie" asp-action="Index">Back to overview</a>
+</div>
+

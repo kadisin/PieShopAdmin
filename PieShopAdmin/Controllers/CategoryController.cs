@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ActionConstraints;
 using PieShopAdmin.Models;
 using PieShopAdmin.Models.Repositories;
 using PieShopAdmin.ViewModel;
@@ -58,6 +59,74 @@ namespace PieShopAdmin.Controllers
 
             }
             return View(category);
+        }
+        
+        //method to get category to update on edit-view
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+
+            var selectedCategory = await _categoryRepository.GetCategoryByIdAsync(id.Value);
+            return View(selectedCategory);
+        }
+
+        //edit category
+        [HttpPost]
+        public async Task<IActionResult> Edit(Category category)
+        {
+            try
+            {
+                if(ModelState.IsValid)
+                {
+                    await _categoryRepository.UpdateCategoryAsync(category); ;
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch(Exception ex)
+            {
+                ModelState.AddModelError("", $"Updating the category failed, please try again! Error: {ex.Message}");
+            }
+
+            return View(category);
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var selectedCategory = await _categoryRepository.GetCategoryByIdAsync(id);
+            return View(selectedCategory);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int? CategoryId)
+        {
+            if(CategoryId == null)
+            {
+                ViewData["ErrorMessage"] = "Deleting the category failed, invalid ID";
+                return View();
+            }
+
+            try
+            {
+                await _categoryRepository.DeleteCategoryAsync(CategoryId.Value);
+                TempData["CategoryDeleted"] = "Category deleted successfully";
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch(Exception ex)
+            {
+                ViewData["ErrorMessage"] = $"Deleting the category failed, please try again! Error: {ex.Message}";
+
+            }
+
+            var selectedCategory = await _categoryRepository.GetCategoryByIdAsync(CategoryId.Value);
+            return View(selectedCategory);
         }
     }
 }
