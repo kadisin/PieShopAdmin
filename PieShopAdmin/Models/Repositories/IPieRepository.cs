@@ -1,7 +1,7 @@
 ﻿namespace PieShopAdmin.Models.Repositories
 {
     /// <summary>
-    /// IPieRepository define methods related to Pie on database
+    /// IPieRepository define operations related to Pie on database
     /// </summary>
     public interface IPieRepository
     {
