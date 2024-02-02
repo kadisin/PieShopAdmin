@@ -12,7 +12,7 @@
 
 <p>Web application use to manage pies.</p>
 
-<p>As a owner of pie shop I want to manage a pies (add, modify, delete, search etc).
+<p>As a owner of pie shop I want to manage a pies, categories (of pies) and orders.
 
 <h4>Description (technical perspective)</h4>
 
@@ -20,14 +20,14 @@
 
 <p>Project architecture:</p>
 
-<p>Basicly is MVC architecture with extension using Repositories and ViewModels</p>
+<p>MVC architecture with extension using Repositories and ViewModels</p>
 
 <h4>Architecture diagram</h4>
 
 ![arch](https://github.com/kadisin/PieShopAdmin/assets/38622355/b6c88b13-5b37-4163-84c3-a3e60c9c01a7)
 
 
-<p>Basic CRUD operation on pie's and categories (look interfaces <a href="https://github.com/kadisin/PieShopAdmin/blob/master/PieShopAdmin/Models/Repositories/IPieRepository.cs">IPieRepository</a> and <a href="https://github.com/kadisin/PieShopAdmin/blob/master/PieShopAdmin/Models/Repositories/ICategoryRepository.cs">ICategoryRepository</a>).</p>
+<p>Operations on pie's and categories (look interfaces <a href="https://github.com/kadisin/PieShopAdmin/blob/master/PieShopAdmin/Models/Repositories/IPieRepository.cs">IPieRepository</a> and <a href="https://github.com/kadisin/PieShopAdmin/blob/master/PieShopAdmin/Models/Repositories/ICategoryRepository.cs">ICategoryRepository</a>).</p>
 
 <h4> Pie:</h4>
 <li>Get all</li>
