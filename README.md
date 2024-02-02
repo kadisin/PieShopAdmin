@@ -22,6 +22,11 @@
 
 <p>Basicly is MVC architecture with extension using Repositories and ViewModels</p>
 
+<h4>Architecture diagram</h4>
+
+![arch](https://github.com/kadisin/PieShopAdmin/assets/38622355/b6c88b13-5b37-4163-84c3-a3e60c9c01a7)
+
+
 <p>Basic CRUD operation on pie's and categories (look interfaces <a href="https://github.com/kadisin/PieShopAdmin/blob/master/PieShopAdmin/Models/Repositories/IPieRepository.cs">IPieRepository</a> and <a href="https://github.com/kadisin/PieShopAdmin/blob/master/PieShopAdmin/Models/Repositories/ICategoryRepository.cs">ICategoryRepository</a>).</p>
 
 <h4> Pie:</h4>
