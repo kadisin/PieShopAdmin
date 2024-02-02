@@ -52,10 +52,11 @@
 <li>Track changes</li>
 <li>Cache</li>
 <li>Migrations</li>
-
-Database structure:
+<p></p>
+<h4>Database structure:</h4>
 
 ![image](https://github.com/kadisin/PieShopAdmin/assets/38622355/73803411-973a-4359-8255-88682482a2fe) 
+
 <h4>Intresting notes: </h4>
 <p>Track changes: This is one of the main function on Entity framework.</p>
 <p>EF track changes on rows (add, modify, delete) </p> 
