@@ -20,7 +20,7 @@
 
 <p>Project architecture:</p>
 
-<p>MVC architecture with extension using Repositories and ViewModels</p>
+<p>MVC architecture with extension using repository pattern</p>
 
 <h4>Architecture diagram</h4>
 
